@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Water Monitoring System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    nav {
+      background-color: #0077cc;
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .about, .objectives, .contact {
+      background: #f2f2f2;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+    canvas {
+      max-width: 700px;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#objectives">Objectives</a>
+    <a href="#chart">Chart</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h1>Welcome to the Community Water Monitoring System</h1>
+    <p>This platform helps track water quality in real time for safer, healthier communities.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About the Project</h2>
+    <p>The Community Water Monitoring System is designed to measure and display water quality parameters such as pH, turbidity, and water level using sensors and IoT technologies.</p>
+  </section>
+
+  <section id="objectives" class="objectives">
+    <h2>Objectives</h2>
+    <ul>
+      <li>Provide real-time monitoring of water sources.</li>
+      <li>Alert users about unsafe water conditions.</li>
+      <li>Encourage environmental awareness and health.</li>
+    </ul>
+  </section>
+
+  <section id="chart">
+    <h2>Water Level Chart</h2>
+    <canvas id="waterChart"></canvas>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: communitywater@example.com</p>
+    <p>Phone: +254 712 345678</p>
+  </section>
+
+  <script>
+    const ctx = document.getElementById('waterChart').getContext('2d');
+    const waterChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Water Level (cm)',
+          data: [44, 49, 51, 46, 52, 47, 50],
+          backgroundColor: 'rgba(0, 123, 255, 0.2)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: {
+            display: true,
+            text: 'Weekly Water Level Monitoring'
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
 
